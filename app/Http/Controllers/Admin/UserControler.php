@@ -58,7 +58,7 @@ class UserControler extends Controller
                 "id_country" => $data["id_country"],
             ]);
             if (!empty($file)) {
-                $file->move('upload/blog', $data['avatar']);
+                $file->storeAs('public/users', $data['avatar']);
             }
             DB::commit();
             return response()->json([
